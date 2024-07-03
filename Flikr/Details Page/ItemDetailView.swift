@@ -11,7 +11,6 @@ import SwiftUI
 struct ItemDetailView: View {
     var apiService: APIServiceProtocol
     @ObservedObject var detailViewModel: ItemDetailViewModel
-    
     init(apiService: APIServiceProtocol, detailViewModel: ItemDetailViewModel) {
         self.apiService = apiService
         self.detailViewModel = detailViewModel
@@ -34,7 +33,9 @@ struct ItemDetailView: View {
                         .padding(.vertical)
                     Spacer()
                     Button(action: {
-                        shareItem()
+                        Task {
+                            await detailViewModel.shareItem()
+                        }
                     }) {
                         Text("Share")
                             .font(.subheadline)
@@ -63,26 +64,13 @@ struct ItemDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .background(Color.yellow.opacity(0.3))
-        
-        
-    }
-    
-    func shareItem() {
-        guard let imageUrlString = detailViewModel.item.media?.m,
-              let imageUrl = URL(string: imageUrlString) else { return }
-        
-        URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-            guard let data = data,
-                  let image = UIImage(data: data) else { return }
-            
-            let activityItems: [Any] = [image, detailViewModel.item.title ?? ""]
-            
-            DispatchQueue.main.async {
-                let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-                UIApplication.shared.keyWindow?.rootViewController?
-                    .present(activityViewController, animated: true, completion: nil)
-            }
-        }.resume()
+        .alert(isPresented: $detailViewModel.showAlert) {
+            Alert(
+                title: Text("Error Occurred"),
+                message: Text("Try again"),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
 

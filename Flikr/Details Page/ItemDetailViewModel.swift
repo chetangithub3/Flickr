@@ -6,15 +6,19 @@
 //
 
 import Foundation
+import UIKit
 class ItemDetailViewModel: ObservableObject {
     @Published var item: Item
     @Published var imageWidth: Int?
     @Published var imageHeight: Int?
     @Published var description: String?
     @Published var date: String?
-    
-    init(item: Item) {
+    @Published var showAlert = false
+    @Published var alertMessage = ""
+    var apiService: APIServiceProtocol
+    init(item: Item, apiService: APIServiceProtocol) {
         self.item = item
+        self.apiService = apiService
         parseDescription()
         parseImageSizeFromDescription()
         formattedDate()
@@ -48,6 +52,32 @@ class ItemDetailViewModel: ObservableObject {
         if let date = formatter.date(from: item.published ?? "") {
             formatter.dateFormat = "MMM d, yyyy"
             self.date =  formatter.string(from: date)
+        }
+    }
+    
+    func shareItem() async {
+        guard let imageUrlString = item.media?.m,
+              let imageUrl = URL(string: imageUrlString) else {
+            showAlert = true
+            return
+        }
+        let request = URLRequest(url: imageUrl)
+        let result = await apiService.fetch(request: request)
+        switch result {
+            case .success(let data):
+                guard let image = UIImage(data: data) else {
+                    showAlert = true
+                    return
+                }
+                let activityItems: [Any] = [image, item.title ?? "Image"]
+                await MainActor.run {
+                    let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+                    UIApplication.shared.keyWindow?.rootViewController?
+                        .present(activityViewController, animated: true, completion: nil)
+                }
+                break
+            case .failure(_):
+                showAlert = true
         }
     }
 }

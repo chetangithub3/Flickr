@@ -19,7 +19,7 @@ struct ResultsView: View {
                 ForEach(viewModel.items) { item in
                     if let urlString = item.media?.m {
                         NavigationLink {
-                            ItemDetailView(apiService: APIService(), detailViewModel: ItemDetailViewModel(item: item))
+                            ItemDetailView(apiService: APIService(), detailViewModel: ItemDetailViewModel(item: item, apiService: APIService()))
                         } label: {
                             VStack {
                                 AsyncImage(url: URL(string:  urlString)!) { image in
