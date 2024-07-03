@@ -6,64 +6,70 @@
 //
 
 import Foundation
-import Combine
-
-class HomeViewModel: ObservableObject{
-    var cancellebles = Set<AnyCancellable>()
-    var textCancellebles = Set<AnyCancellable>()
+@MainActor
+class HomeViewModel: ObservableObject {
+    private var currentTask: Task<Void, Never>? = nil
+    private var listenerTask: Task<Void, Never>? = nil
     var apiService: APIServiceProtocol
     @Published var isLoading = false
     @Published var searchText = ""
+    @Published var loadingState: LoadingState = .none
     @Published var items: [Item] = [Item]()
-    
     init(apiService: APIServiceProtocol) {
         self.apiService = apiService
         self.searchFieldListener()
     }
     
     func searchFieldListener() {
-        $searchText
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
-            .sink { text in
-                if !text.isEmpty {
-                    self.callAPI(text: self.searchText)
-                }
-            }.store(in: &textCancellebles)
-    }
+         listenerTask = Task {
+             var lastSearchText = ""
+             while true {
+                 try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds, similar to debounce
+                 let currentSearchText = self.searchText
+                 if currentSearchText != lastSearchText {
+                     lastSearchText = currentSearchText
+                     if !currentSearchText.isEmpty {
+                         self.currentTask?.cancel()
+                         self.currentTask = Task {
+                             await self.callAPI(text: currentSearchText)
+                         }
+                     }
+                 }
+             }
+         }
+     }
     
-    func callAPI(text: String) {
+    func callAPI(text: String) async {
         let url = Constants.API.baseURL + text
         guard let URL = URL(string: url) else {return}
-        fetch(from: URL)
+        await fetch(from: URL)
     }
     
-    func fetch(from url: URL) {
-        cancellebles.removeAll()
+    func fetch(from url: URL) async {
         isLoading = true
-        let session = URLSession.shared
-        let task = session.dataTask(with: url) { data, response, error in
-            if let error = error {
+        let request = URLRequest(url: url)
+        let result = await apiService.fetch(request: request)
+        switch result {
+            case .success(let data):
+                decodeData(data: data)
+                break
+            case .failure(let error):
                 print("Error: \(error)")
-                return
-            }
-            guard let data = data else {
-                print("No data received")
-                return
-            }
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let flickrData = try decoder.decode(Res.self, from: data)
-                if let items = flickrData.items {
-                    DispatchQueue.main.async {
-                        self.items = items
-                        self.isLoading = false
-                    }
-                }
-            } catch {
-                print("Error decoding JSON: \(error)")
-            }
+                break
         }
-        task.resume()
+    }
+    
+    func decodeData(data: Data) {
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let flickrData = try decoder.decode(Res.self, from: data)
+            if let items = flickrData.items {
+                    self.items = items
+                    self.isLoading = false
+            }
+        } catch {
+            print("Error decoding JSON: \(error)")
+        }
     }
 }
