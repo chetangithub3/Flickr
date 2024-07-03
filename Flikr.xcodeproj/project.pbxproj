@@ -27,6 +27,7 @@
 		613FAA472C360FA600AD00FC /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA462C360FA600AD00FC /* ResultsView.swift */; };
 		613FAA492C36101600AD00FC /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA482C36101600AD00FC /* ErrorView.swift */; };
 		613FAA4B2C36105900AD00FC /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA4A2C36105900AD00FC /* NoResultsView.swift */; };
+		613FAA4D2C3612DF00AD00FC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA4C2C3612DF00AD00FC /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		613FAA462C360FA600AD00FC /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		613FAA482C36101600AD00FC /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		613FAA4A2C36105900AD00FC /* NoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsView.swift; sourceTree = "<group>"; };
+		613FAA4C2C3612DF00AD00FC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				613FAA442C360F5F00AD00FC /* EmptySearchBarResultsView.swift */,
 				613FAA462C360FA600AD00FC /* ResultsView.swift */,
 				613FAA482C36101600AD00FC /* ErrorView.swift */,
+				613FAA4C2C3612DF00AD00FC /* LoadingView.swift */,
 				613FAA4A2C36105900AD00FC /* NoResultsView.swift */,
 				613FAA312C35EEFA00AD00FC /* HomeViewModel.swift */,
 			);
@@ -325,6 +328,7 @@
 				613FAA472C360FA600AD00FC /* ResultsView.swift in Sources */,
 				613FAA292C35ED3B00AD00FC /* NetworkError.swift in Sources */,
 				613FAA322C35EEFA00AD00FC /* HomeViewModel.swift in Sources */,
+				613FAA4D2C3612DF00AD00FC /* LoadingView.swift in Sources */,
 				613FAA362C35EF3300AD00FC /* ItemDetailView.swift in Sources */,
 				613FAA3A2C35F1D500AD00FC /* Utility.swift in Sources */,
 				613FAA3F2C35F67C00AD00FC /* SearchableTextFieldView.swift in Sources */,

@@ -24,7 +24,7 @@ struct SearchableTextFieldView: View {
                 .accessibilityLabel("Search for images")
         }
         .overlay {
-            if viewModel.isLoading {
+            if viewModel.loadingState == .loading {
                 HStack {
                     Spacer()
                     ProgressView().padding(.horizontal).padding(.horizontal)

@@ -11,7 +11,6 @@ class HomeViewModel: ObservableObject {
     private var currentTask: Task<Void, Never>? = nil
     private var listenerTask: Task<Void, Never>? = nil
     var apiService: APIServiceProtocol
-    @Published var isLoading = false
     @Published var searchText = ""
     @Published var loadingState: LoadingState = .none
     @Published var items: [Item] = [Item]()
@@ -24,6 +23,9 @@ class HomeViewModel: ObservableObject {
          listenerTask = Task {
              var lastSearchText = ""
              while true {
+                 if searchText.isEmpty {
+                     loadingState = .none
+                 }
                  try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds, similar to debounce
                  let currentSearchText = self.searchText
                  if currentSearchText != lastSearchText {
@@ -41,12 +43,15 @@ class HomeViewModel: ObservableObject {
     
     func callAPI(text: String) async {
         let url = Constants.API.baseURL + text
-        guard let URL = URL(string: url) else {return}
+        guard let URL = URL(string: url) else {
+            loadingState = .failure(NetworkError.badRequest)
+            return
+        }
         await fetch(from: URL)
     }
     
     func fetch(from url: URL) async {
-        isLoading = true
+        self.loadingState = .loading
         let request = URLRequest(url: url)
         let result = await apiService.fetch(request: request)
         switch result {
@@ -54,7 +59,7 @@ class HomeViewModel: ObservableObject {
                 decodeData(data: data)
                 break
             case .failure(let error):
-                print("Error: \(error)")
+                self.loadingState = .failure(error)
                 break
         }
     }
@@ -65,11 +70,11 @@ class HomeViewModel: ObservableObject {
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let flickrData = try decoder.decode(Res.self, from: data)
             if let items = flickrData.items {
-                    self.items = items
-                    self.isLoading = false
+                self.items = items
+                self.loadingState = .success
             }
         } catch {
-            print("Error decoding JSON: \(error)")
+            self.loadingState = .failure(error)
         }
     }
 }

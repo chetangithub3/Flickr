@@ -17,14 +17,21 @@ struct ResultsView: View {
         ScrollView {
             LazyVGrid(columns: columns, content: {
                 ForEach(viewModel.items) { item in
-                    NavigationLink {
-                        ItemDetailView(apiService: APIService(), detailViewModel: ItemDetailViewModel(item: item))
-                    } label: {
-                        AsyncImage(url: URL(string: item.media?.m ?? "")!)
-                            .accessibilityLabel("Image title: \(item.title ?? "")")
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: getScreenBounds().width / 2 - 20, height: getScreenBounds().width / 2 - 40)
-                            .cornerRadius(20)
+                    if let urlString = item.media?.m {
+                        NavigationLink {
+                            ItemDetailView(apiService: APIService(), detailViewModel: ItemDetailViewModel(item: item))
+                        } label: {
+                            VStack {
+                                AsyncImage(url: URL(string:  urlString)!) { image in
+                                    image
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                            }.accessibilityLabel("Image title: \(item.title ?? "")")
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: getScreenBounds().width / 2 - 20, height: getScreenBounds().width / 2 - 40)
+                                .cornerRadius(20)
+                        }
                     }
                 }
             })

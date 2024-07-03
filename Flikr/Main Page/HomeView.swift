@@ -12,17 +12,17 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .center, spacing: 0){
+            VStack(alignment: .center, spacing: 0) {
                 SearchableTextFieldView()
                 Spacer()
                 switch viewModel.loadingState {
                     case .none:
                         EmptySearchBarResultsView()
                     case .loading:
-                        ProgressView()
+                        LoadingView()
                     case .success:
                         if viewModel.items.isEmpty {
-                           NoResultsView()
+                            NoResultsView()
                         } else {
                             ResultsView()
                         }
