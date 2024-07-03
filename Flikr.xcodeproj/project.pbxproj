@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		613FA9FF2C35ECFE00AD00FC /* FlikrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FA9FE2C35ECFE00AD00FC /* FlikrApp.swift */; };
-		613FAA012C35ECFE00AD00FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA002C35ECFE00AD00FC /* ContentView.swift */; };
 		613FAA032C35ECFF00AD00FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 613FAA022C35ECFF00AD00FC /* Assets.xcassets */; };
 		613FAA062C35ECFF00AD00FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 613FAA052C35ECFF00AD00FC /* Preview Assets.xcassets */; };
 		613FAA102C35ED0000AD00FC /* FlikrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA0F2C35ED0000AD00FC /* FlikrTests.swift */; };
 		613FAA1A2C35ED0000AD00FC /* FlikrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA192C35ED0000AD00FC /* FlikrUITests.swift */; };
 		613FAA1C2C35ED0000AD00FC /* FlikrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA1B2C35ED0000AD00FC /* FlikrUITestsLaunchTests.swift */; };
+		613FAA292C35ED3B00AD00FC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA282C35ED3B00AD00FC /* NetworkError.swift */; };
+		613FAA2B2C35ED5900AD00FC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA2A2C35ED5900AD00FC /* APIService.swift */; };
+		613FAA2D2C35ED7200AD00FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA2C2C35ED7200AD00FC /* Constants.swift */; };
+		613FAA302C35EEE000AD00FC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA2F2C35EEE000AD00FC /* HomeView.swift */; };
+		613FAA322C35EEFA00AD00FC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA312C35EEFA00AD00FC /* HomeViewModel.swift */; };
+		613FAA362C35EF3300AD00FC /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA352C35EF3300AD00FC /* ItemDetailView.swift */; };
+		613FAA382C35EF4900AD00FC /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA372C35EF4900AD00FC /* ResponseModel.swift */; };
+		613FAA3A2C35F1D500AD00FC /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA392C35F1D400AD00FC /* Utility.swift */; };
+		613FAA3F2C35F67C00AD00FC /* SearchableTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA3E2C35F67C00AD00FC /* SearchableTextFieldView.swift */; };
+		613FAA432C35F92D00AD00FC /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA422C35F92D00AD00FC /* ItemDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +45,6 @@
 /* Begin PBXFileReference section */
 		613FA9FB2C35ECFE00AD00FC /* Flikr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flikr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		613FA9FE2C35ECFE00AD00FC /* FlikrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlikrApp.swift; sourceTree = "<group>"; };
-		613FAA002C35ECFE00AD00FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		613FAA022C35ECFF00AD00FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		613FAA052C35ECFF00AD00FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		613FAA0B2C35ED0000AD00FC /* FlikrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlikrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +52,16 @@
 		613FAA152C35ED0000AD00FC /* FlikrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlikrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		613FAA192C35ED0000AD00FC /* FlikrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlikrUITests.swift; sourceTree = "<group>"; };
 		613FAA1B2C35ED0000AD00FC /* FlikrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlikrUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		613FAA282C35ED3B00AD00FC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		613FAA2A2C35ED5900AD00FC /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		613FAA2C2C35ED7200AD00FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		613FAA2F2C35EEE000AD00FC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		613FAA312C35EEFA00AD00FC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		613FAA352C35EF3300AD00FC /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		613FAA372C35EF4900AD00FC /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		613FAA392C35F1D400AD00FC /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		613FAA3E2C35F67C00AD00FC /* SearchableTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableTextFieldView.swift; sourceTree = "<group>"; };
+		613FAA422C35F92D00AD00FC /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +113,12 @@
 			isa = PBXGroup;
 			children = (
 				613FA9FE2C35ECFE00AD00FC /* FlikrApp.swift */,
-				613FAA002C35ECFE00AD00FC /* ContentView.swift */,
+				613FAA402C35F90B00AD00FC /* Main Page */,
+				613FAA412C35F91600AD00FC /* Details Page */,
+				613FAA372C35EF4900AD00FC /* ResponseModel.swift */,
+				613FAA2E2C35EDC200AD00FC /* Network Manager */,
+				613FAA2C2C35ED7200AD00FC /* Constants.swift */,
+				613FAA392C35F1D400AD00FC /* Utility.swift */,
 				613FAA022C35ECFF00AD00FC /* Assets.xcassets */,
 				613FAA042C35ECFF00AD00FC /* Preview Content */,
 			);
@@ -125,6 +148,34 @@
 				613FAA1B2C35ED0000AD00FC /* FlikrUITestsLaunchTests.swift */,
 			);
 			path = FlikrUITests;
+			sourceTree = "<group>";
+		};
+		613FAA2E2C35EDC200AD00FC /* Network Manager */ = {
+			isa = PBXGroup;
+			children = (
+				613FAA282C35ED3B00AD00FC /* NetworkError.swift */,
+				613FAA2A2C35ED5900AD00FC /* APIService.swift */,
+			);
+			path = "Network Manager";
+			sourceTree = "<group>";
+		};
+		613FAA402C35F90B00AD00FC /* Main Page */ = {
+			isa = PBXGroup;
+			children = (
+				613FAA2F2C35EEE000AD00FC /* HomeView.swift */,
+				613FAA3E2C35F67C00AD00FC /* SearchableTextFieldView.swift */,
+				613FAA312C35EEFA00AD00FC /* HomeViewModel.swift */,
+			);
+			path = "Main Page";
+			sourceTree = "<group>";
+		};
+		613FAA412C35F91600AD00FC /* Details Page */ = {
+			isa = PBXGroup;
+			children = (
+				613FAA352C35EF3300AD00FC /* ItemDetailView.swift */,
+				613FAA422C35F92D00AD00FC /* ItemDetailViewModel.swift */,
+			);
+			path = "Details Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +308,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				613FAA012C35ECFE00AD00FC /* ContentView.swift in Sources */,
+				613FAA432C35F92D00AD00FC /* ItemDetailViewModel.swift in Sources */,
+				613FAA2D2C35ED7200AD00FC /* Constants.swift in Sources */,
+				613FAA292C35ED3B00AD00FC /* NetworkError.swift in Sources */,
+				613FAA322C35EEFA00AD00FC /* HomeViewModel.swift in Sources */,
+				613FAA362C35EF3300AD00FC /* ItemDetailView.swift in Sources */,
+				613FAA3A2C35F1D500AD00FC /* Utility.swift in Sources */,
+				613FAA3F2C35F67C00AD00FC /* SearchableTextFieldView.swift in Sources */,
+				613FAA302C35EEE000AD00FC /* HomeView.swift in Sources */,
+				613FAA2B2C35ED5900AD00FC /* APIService.swift in Sources */,
+				613FAA382C35EF4900AD00FC /* ResponseModel.swift in Sources */,
 				613FA9FF2C35ECFE00AD00FC /* FlikrApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct FlikrApp: App {
+    @StateObject var viewModel = HomeViewModel(apiService: APIService())
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .environmentObject(viewModel)
+                .preferredColorScheme(.light)
         }
     }
 }
