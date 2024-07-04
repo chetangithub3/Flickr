@@ -8,14 +8,15 @@
 import Foundation
 import UIKit
 class ItemDetailViewModel: ObservableObject {
-    @Published var item: Item
+    var item: Item
+    var apiService: APIServiceProtocol
     @Published var imageWidth: Int?
     @Published var imageHeight: Int?
     @Published var description: String?
     @Published var date: String?
     @Published var showAlert = false
     @Published var alertMessage = ""
-    var apiService: APIServiceProtocol
+
     init(item: Item, apiService: APIServiceProtocol) {
         self.item = item
         self.apiService = apiService

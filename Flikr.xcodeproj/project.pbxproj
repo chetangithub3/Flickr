@@ -10,7 +10,7 @@
 		613FA9FF2C35ECFE00AD00FC /* FlikrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FA9FE2C35ECFE00AD00FC /* FlikrApp.swift */; };
 		613FAA032C35ECFF00AD00FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 613FAA022C35ECFF00AD00FC /* Assets.xcassets */; };
 		613FAA062C35ECFF00AD00FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 613FAA052C35ECFF00AD00FC /* Preview Assets.xcassets */; };
-		613FAA102C35ED0000AD00FC /* FlikrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA0F2C35ED0000AD00FC /* FlikrTests.swift */; };
+		613FAA102C35ED0000AD00FC /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA0F2C35ED0000AD00FC /* MockAPIService.swift */; };
 		613FAA1A2C35ED0000AD00FC /* FlikrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA192C35ED0000AD00FC /* FlikrUITests.swift */; };
 		613FAA1C2C35ED0000AD00FC /* FlikrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA1B2C35ED0000AD00FC /* FlikrUITestsLaunchTests.swift */; };
 		613FAA292C35ED3B00AD00FC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA282C35ED3B00AD00FC /* NetworkError.swift */; };
@@ -28,6 +28,39 @@
 		613FAA492C36101600AD00FC /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA482C36101600AD00FC /* ErrorView.swift */; };
 		613FAA4B2C36105900AD00FC /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA4A2C36105900AD00FC /* NoResultsView.swift */; };
 		613FAA4D2C3612DF00AD00FC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA4C2C3612DF00AD00FC /* LoadingView.swift */; };
+		613FAA4E2C361A5900AD00FC /* FlikrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FA9FE2C35ECFE00AD00FC /* FlikrApp.swift */; };
+		613FAA4F2C361A5A00AD00FC /* FlikrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FA9FE2C35ECFE00AD00FC /* FlikrApp.swift */; };
+		613FAA502C361A5C00AD00FC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA2F2C35EEE000AD00FC /* HomeView.swift */; };
+		613FAA512C361A5D00AD00FC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA2F2C35EEE000AD00FC /* HomeView.swift */; };
+		613FAA522C361A5F00AD00FC /* SearchableTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA3E2C35F67C00AD00FC /* SearchableTextFieldView.swift */; };
+		613FAA532C361A6000AD00FC /* SearchableTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA3E2C35F67C00AD00FC /* SearchableTextFieldView.swift */; };
+		613FAA542C361A6300AD00FC /* EmptySearchBarResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA442C360F5F00AD00FC /* EmptySearchBarResultsView.swift */; };
+		613FAA552C361A6300AD00FC /* EmptySearchBarResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA442C360F5F00AD00FC /* EmptySearchBarResultsView.swift */; };
+		613FAA562C361A6700AD00FC /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA462C360FA600AD00FC /* ResultsView.swift */; };
+		613FAA572C361A6700AD00FC /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA462C360FA600AD00FC /* ResultsView.swift */; };
+		613FAA582C361A6900AD00FC /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA482C36101600AD00FC /* ErrorView.swift */; };
+		613FAA592C361A6A00AD00FC /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA482C36101600AD00FC /* ErrorView.swift */; };
+		613FAA5A2C361A6C00AD00FC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA4C2C3612DF00AD00FC /* LoadingView.swift */; };
+		613FAA5B2C361A6D00AD00FC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA4C2C3612DF00AD00FC /* LoadingView.swift */; };
+		613FAA5C2C361A6F00AD00FC /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA4A2C36105900AD00FC /* NoResultsView.swift */; };
+		613FAA5D2C361A7000AD00FC /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA4A2C36105900AD00FC /* NoResultsView.swift */; };
+		613FAA5E2C361A7200AD00FC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA312C35EEFA00AD00FC /* HomeViewModel.swift */; };
+		613FAA5F2C361A7300AD00FC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA312C35EEFA00AD00FC /* HomeViewModel.swift */; };
+		613FAA602C361A7500AD00FC /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA352C35EF3300AD00FC /* ItemDetailView.swift */; };
+		613FAA612C361A7600AD00FC /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA352C35EF3300AD00FC /* ItemDetailView.swift */; };
+		613FAA622C361A7800AD00FC /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA422C35F92D00AD00FC /* ItemDetailViewModel.swift */; };
+		613FAA632C361A7800AD00FC /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA422C35F92D00AD00FC /* ItemDetailViewModel.swift */; };
+		613FAA642C361A7B00AD00FC /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA372C35EF4900AD00FC /* ResponseModel.swift */; };
+		613FAA652C361A7B00AD00FC /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA372C35EF4900AD00FC /* ResponseModel.swift */; };
+		613FAA662C361A7F00AD00FC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA282C35ED3B00AD00FC /* NetworkError.swift */; };
+		613FAA672C361A8000AD00FC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA282C35ED3B00AD00FC /* NetworkError.swift */; };
+		613FAA682C361A8200AD00FC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA2A2C35ED5900AD00FC /* APIService.swift */; };
+		613FAA692C361A8200AD00FC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA2A2C35ED5900AD00FC /* APIService.swift */; };
+		613FAA6A2C361A8400AD00FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA2C2C35ED7200AD00FC /* Constants.swift */; };
+		613FAA6B2C361A8500AD00FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA2C2C35ED7200AD00FC /* Constants.swift */; };
+		613FAA6C2C361A8700AD00FC /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA392C35F1D400AD00FC /* Utility.swift */; };
+		613FAA6D2C361A8700AD00FC /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA392C35F1D400AD00FC /* Utility.swift */; };
+		613FAA6F2C361B1400AD00FC /* ItemDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FAA6E2C361B1400AD00FC /* ItemDetailViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +86,7 @@
 		613FAA022C35ECFF00AD00FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		613FAA052C35ECFF00AD00FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		613FAA0B2C35ED0000AD00FC /* FlikrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlikrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		613FAA0F2C35ED0000AD00FC /* FlikrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlikrTests.swift; sourceTree = "<group>"; };
+		613FAA0F2C35ED0000AD00FC /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		613FAA152C35ED0000AD00FC /* FlikrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlikrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		613FAA192C35ED0000AD00FC /* FlikrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlikrUITests.swift; sourceTree = "<group>"; };
 		613FAA1B2C35ED0000AD00FC /* FlikrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlikrUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -72,6 +105,7 @@
 		613FAA482C36101600AD00FC /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		613FAA4A2C36105900AD00FC /* NoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsView.swift; sourceTree = "<group>"; };
 		613FAA4C2C3612DF00AD00FC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		613FAA6E2C361B1400AD00FC /* ItemDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +180,8 @@
 		613FAA0E2C35ED0000AD00FC /* FlikrTests */ = {
 			isa = PBXGroup;
 			children = (
-				613FAA0F2C35ED0000AD00FC /* FlikrTests.swift */,
+				613FAA0F2C35ED0000AD00FC /* MockAPIService.swift */,
+				613FAA6E2C361B1400AD00FC /* ItemDetailViewModelTests.swift */,
 			);
 			path = FlikrTests;
 			sourceTree = "<group>";
@@ -346,7 +381,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				613FAA102C35ED0000AD00FC /* FlikrTests.swift in Sources */,
+				613FAA502C361A5C00AD00FC /* HomeView.swift in Sources */,
+				613FAA682C361A8200AD00FC /* APIService.swift in Sources */,
+				613FAA662C361A7F00AD00FC /* NetworkError.swift in Sources */,
+				613FAA562C361A6700AD00FC /* ResultsView.swift in Sources */,
+				613FAA4E2C361A5900AD00FC /* FlikrApp.swift in Sources */,
+				613FAA602C361A7500AD00FC /* ItemDetailView.swift in Sources */,
+				613FAA6F2C361B1400AD00FC /* ItemDetailViewModelTests.swift in Sources */,
+				613FAA5E2C361A7200AD00FC /* HomeViewModel.swift in Sources */,
+				613FAA6A2C361A8400AD00FC /* Constants.swift in Sources */,
+				613FAA5C2C361A6F00AD00FC /* NoResultsView.swift in Sources */,
+				613FAA522C361A5F00AD00FC /* SearchableTextFieldView.swift in Sources */,
+				613FAA582C361A6900AD00FC /* ErrorView.swift in Sources */,
+				613FAA5A2C361A6C00AD00FC /* LoadingView.swift in Sources */,
+				613FAA642C361A7B00AD00FC /* ResponseModel.swift in Sources */,
+				613FAA102C35ED0000AD00FC /* MockAPIService.swift in Sources */,
+				613FAA622C361A7800AD00FC /* ItemDetailViewModel.swift in Sources */,
+				613FAA542C361A6300AD00FC /* EmptySearchBarResultsView.swift in Sources */,
+				613FAA6C2C361A8700AD00FC /* Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,8 +406,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613FAA612C361A7600AD00FC /* ItemDetailView.swift in Sources */,
+				613FAA6B2C361A8500AD00FC /* Constants.swift in Sources */,
+				613FAA6D2C361A8700AD00FC /* Utility.swift in Sources */,
 				613FAA1A2C35ED0000AD00FC /* FlikrUITests.swift in Sources */,
+				613FAA5F2C361A7300AD00FC /* HomeViewModel.swift in Sources */,
+				613FAA632C361A7800AD00FC /* ItemDetailViewModel.swift in Sources */,
+				613FAA652C361A7B00AD00FC /* ResponseModel.swift in Sources */,
+				613FAA532C361A6000AD00FC /* SearchableTextFieldView.swift in Sources */,
+				613FAA692C361A8200AD00FC /* APIService.swift in Sources */,
+				613FAA5D2C361A7000AD00FC /* NoResultsView.swift in Sources */,
+				613FAA512C361A5D00AD00FC /* HomeView.swift in Sources */,
+				613FAA552C361A6300AD00FC /* EmptySearchBarResultsView.swift in Sources */,
+				613FAA672C361A8000AD00FC /* NetworkError.swift in Sources */,
+				613FAA572C361A6700AD00FC /* ResultsView.swift in Sources */,
 				613FAA1C2C35ED0000AD00FC /* FlikrUITestsLaunchTests.swift in Sources */,
+				613FAA4F2C361A5A00AD00FC /* FlikrApp.swift in Sources */,
+				613FAA592C361A6A00AD00FC /* ErrorView.swift in Sources */,
+				613FAA5B2C361A6D00AD00FC /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
